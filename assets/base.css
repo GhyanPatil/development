@@ -3637,3 +3637,9 @@ details-disclosure>details {
   width: fit-content;
   line-height: 1.2;
 }
+
+.both-btns-name {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
