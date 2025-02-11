@@ -3660,3 +3660,7 @@ a.btn-first-on-both {
   gap: 10px;
   padding: 14px 6px 14px 16px;
 }
+
+.main_header {
+  border-radius: 8px;
+}
