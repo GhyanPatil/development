@@ -225,24 +225,6 @@
     {%- endif -%}
 
     <div class="header-btn-names">
-      {% if section.settings.buttonname != blank %}
-        <div class="both-btns-name">
-          <a
-            class="btn-first-on-both"
-            href="{% if section.settings.buttonurl != blank %}{{ section.settings.buttonurl }}{% else %}javascript:void(0);{% endif %}"
-          >
-            {{- section.settings.buttonname -}}
-          </a>
-          {% if section.settings.buttonname2 != blank %}
-            <a
-              class="btn-second-on-both"
-              href="{% if section.settings.buttonurl2 != blank %}{{ section.settings.buttonurl2 }}{% else %}javascript:void(0);{% endif %}"
-            >
-              {{ section.settings.buttonname2 }}
-            </a>
-          {% endif %}
-        </div>
-      {% endif %}
       <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
         <div class="desktop-localization-wrapper ">
           {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
