@@ -2538,6 +2538,11 @@ input[type='checkbox'] {
   height: 44px;
 }
 
+.header__icon--cart .svg-wrapper {
+  width: 18px;
+  height: 18px;
+}
+
 .header__icon::after {
   content: none;
 }
