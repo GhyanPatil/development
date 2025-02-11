@@ -111,4 +111,7 @@
     padding: 15px 41px;
     border-radius: 8px;
     font-weight: 500;
+    display: block;
+    width: fit-content;
+    line-height: 1.2;
 }
