@@ -1,0 +1,23 @@
+{{ 'video-overlay-text.css' | asset_url | stylesheet_tag }}
+
+<section class="image_overlay_text">
+  <div class=""></div>
+</section>
+
+{% schema %}
+{
+  "name": "Video overlay text",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video overlay text"
+    }
+  ]
+}
+{% endschema %}
