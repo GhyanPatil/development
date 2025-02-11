@@ -3625,6 +3625,7 @@ details-disclosure>details {
 .header-btn-names {
   display: flex;
   align-items: center;
+  gap: 25px;
 }
 
 .both-btns-name a {
