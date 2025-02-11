@@ -3664,3 +3664,13 @@ a.btn-first-on-both {
 .main_header {
   border-radius: 8px;
 }
+
+@media(max-width: 991px) {
+  .both-btns-name {
+    display: none;
+  }
+
+  .header-btn-names {
+    justify-content: end;
+  }
+}
