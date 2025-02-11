@@ -1,22 +1,231 @@
 {{ 'video-overlay-text.css' | asset_url | stylesheet_tag }}
 
-<section class="image_overlay_text">
-  <div class=""></div>
+<section class="video_overlay_txt video-overlay-{{ section.id }}">
+  <div class="video-overlay-text-main">
+    {% if section.settings.video != blank %}
+      <div class="video-overlay-main-video">
+        <div class="bg-overlay"></div>
+        <div class="video-ovrelya-main">
+          {{
+            section.settings.video
+            | video_tag: image_size: '1000x', autoplay: true, loop: true, controls: false, muted: true
+          }}
+        </div>
+      </div>
+    {% else %}
+      <div class="video-overlay-main-video">
+        <div class="bg-overlay"></div>
+
+        {% if section.settings.image != blank %}
+          <div class="video-ovrelya-main">
+            <img src="{{ section.settings.image | img_url: 'master' }}">
+          </div>
+        {% else %}
+          {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      </div>
+    {% endif %}
+    {% if section.blocks.size != 0 %}
+      <div class="video-overlay-main video-overlay-{{ section.settings.desktop_content_position }}">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'heading' %}
+              {% if block.settings.title != blank %}
+                <div class="overlay-contents-items">
+                  <h2 class="overlay-main-heading">
+                    {{ block.settings.title }}
+                  </h2>
+                </div>
+              {% endif %}
+
+            {% when 'button' %}
+              {% if block.settings.buttonname != blank %}
+                <div class="overlay-btn-name">
+                  <a
+                    class="overlay-anchor-link"
+                    href="{% if block.settings.btnurl != blank %}{{ block.settings.btnurl }}{% else %}javascript:void(0);{% endif %}"
+                  >
+                    {{ block.settings.buttonname }}
+                  </a>
+                </div>
+              {% endif %}
+          {% endcase %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
 </section>
 
+{% style %}
+    .bg-overlay:after {
+      background: rgb(0%, 0%, 0%, {{section.settings.overlayopacity}});
+  }
+
+
+  {% for block in section.blocks %}
+     {% case block.type %}
+       {% when 'heading' %}
+       .overlay-main-heading{
+         color: {{block.settings.color}};
+       }
+       @media(min-width: 768px){
+        .overlay-main-heading{
+          font-size: {{block.settings.FontSizeDesk}}px;
+        }
+       }
+       @media(max-width: 768px){
+        .overlay-main-heading{
+          font-size: {{block.settings.FontSizeMob}}px;
+        }
+       }
+
+       {% when 'button' %}
+       .overlay-anchor-link{
+         background: {{block.settings.BtnBgColor}};
+         color: {{block.settings.BtnColor}};
+       }
+
+     {% endcase %}
+    {% endfor %}
+{% endstyle %}
 {% schema %}
 {
-  "name": "Video overlay text",
+  "name": "video overlay text",
   "settings": [
+    {
+      "type": "video",
+      "id": "video",
+      "label": "video"
+    },
     {
       "type": "image_picker",
       "id": "image",
-      "label": "Image"
+      "label": "image"
+    },
+    {
+      "type": "range",
+      "id": "overlayopacity",
+      "min": 0.1,
+      "max": 1,
+      "step": 0.1,
+      "label": "overlay opacity",
+      "default": 0.3
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_position",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__1.label"
+        },
+        {
+          "value": "top-center",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__2.label"
+        },
+        {
+          "value": "top-right",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__3.label"
+        },
+        {
+          "value": "middle-left",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__4.label"
+        },
+        {
+          "value": "middle-center",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__5.label"
+        },
+        {
+          "value": "middle-right",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__6.label"
+        },
+        {
+          "value": "bottom-left",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__7.label"
+        },
+        {
+          "value": "bottom-center",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__8.label"
+        },
+        {
+          "value": "bottom-right",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__9.label"
+        }
+      ],
+      "default": "middle-center",
+      "label": "t:sections.image-banner.settings.desktop_content_position.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:sections.image-with-text.blocks.heading.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "title",
+          "default": "t:sections.image-with-text.blocks.heading.settings.heading.default",
+          "label": "t:sections.image-with-text.blocks.heading.settings.heading.label"
+        },
+        {
+          "type": "range",
+          "id": "FontSizeDesk",
+          "min": 10,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "font size - desktop",
+          "default": 70
+        },
+        {
+          "type": "range",
+          "id": "FontSizeMob",
+          "min": 10,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "font size - mobile",
+          "default": 30
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Font color"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "button",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "color",
+          "id": "BtnBgColor",
+          "label": "Button Bg name"
+        },
+        {
+          "type": "color",
+          "id": "BtnColor",
+          "label": "button Color"
+        },
+        {
+          "type": "text",
+          "id": "buttonname",
+          "label": "Button name"
+        },
+        {
+          "type": "url",
+          "id": "btnurl",
+          "label": "button URL"
+        }
+      ]
     }
   ],
   "presets": [
     {
-      "name": "Video overlay text"
+      "name": "video overlay text"
     }
   ]
 }
