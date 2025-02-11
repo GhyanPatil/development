@@ -1,0 +1,18 @@
+{{ 'image-overlay-text.css' | asset_url | stylesheet_tag }}
+{% schema %}
+{
+  "name": "Image overlay text",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image overlay text"
+    }
+  ]
+}
+{% endschema %}
