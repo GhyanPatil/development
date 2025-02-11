@@ -105,3 +105,10 @@
     margin: 0;
     line-height: 1.2;
 }
+
+.overlay-anchor-link {
+    text-decoration: none;
+    padding: 15px 41px;
+    border-radius: 8px;
+    font-weight: 500;
+}
