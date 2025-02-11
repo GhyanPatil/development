@@ -494,27 +494,33 @@
 {%- endif -%}
 
 {% style %}
-   .btn-first-on-both{
-    background: {{section.settings.BgColor1 }};
-    color: {{section.settings.Color1 }};
-   }
+     .btn-first-on-both{
+      background: {{section.settings.BgColor1 }};
+      color: {{section.settings.Color1 }};
+     }
 
-   .btn-second-on-both {
-    background: {{section.settings.BgColor2 }};
-    color: {{section.settings.Color2 }};
-   }
-  {% if section.settings.HeaderFix %}
-    .main_header  {
-      position: absolute;
-      width: 100%;
-      left: 0;
-      right: 0;
-      background: {{section.settings.BgColorHeader}};
-      top: 20px;
-      max-width: 1520px;
-      margin: 0 auto;
-   }
-   {%endif %}
+     .btn-second-on-both {
+      background: {{section.settings.BgColor2 }};
+      color: {{section.settings.Color2 }};
+     }
+    {% if section.settings.HeaderFix %}
+      .main_header  {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        right: 0;
+        background: {{section.settings.BgColorHeader}};
+        top: 20px;
+        max-width: 1520px;
+        margin: 0 auto;
+     }
+
+     @media(max-width: 1024px) {
+      .list-menu--inline {
+        gap: 26px;
+     }
+  }
+     {%endif %}
 {% endstyle %}
 
 {% schema %}
