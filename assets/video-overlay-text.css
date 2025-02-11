@@ -85,7 +85,7 @@
 .video-overlay-bottom-left {
     bottom: 0;
     left: 0;
-    transform: translate(50px, -50px);
+    transform: translate(50px, -80px);
 }
 
 .video-overlay-bottom-center {
