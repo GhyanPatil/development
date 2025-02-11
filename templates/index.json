@@ -9,6 +9,34 @@
  */
 {
   "sections": {
+    "image_banner_CmMTpm": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_fYUwBL": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image banner",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_fYUwBL"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Rectangle_3.png",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "desktop_content_position": "bottom-left",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
     "multicolumn": {
       "type": "multicolumn",
       "blocks": {
@@ -69,6 +97,7 @@
     }
   },
   "order": [
+    "image_banner_CmMTpm",
     "multicolumn",
     "image_overlay_text_pc6naA"
   ]
