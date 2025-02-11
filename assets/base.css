@@ -3614,3 +3614,19 @@ details-disclosure>details {
     transform: translateX(100%) scaleX(0);
   }
 }
+
+
+
+
+
+
+/* header css start custom =================================------------------------------- */
+
+.header-btn-names {
+  display: flex;
+  align-items: center;
+}
+
+.both-btns-name a {
+  text-decoration: none;
+}

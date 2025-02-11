@@ -228,12 +228,16 @@
       {% if section.settings.buttonname != blank %}
         <div class="both-btns-name">
           <a
+            class="btn-first-on-both"
             href="{% if section.settings.buttonurl != blank %}{{ section.settings.buttonurl }}{% else %}javascript:void(0);{% endif %}"
           >
             {{- section.settings.buttonname -}}
           </a>
           {% if section.settings.buttonname2 != blank %}
-            <a href="{% if section.settings.buttonurl2 != blank %}{{ section.settings.buttonurl2 }}{% else %}javascript:void(0);{% endif %}">
+            <a
+              class="btn-second-on-both"
+              href="{% if section.settings.buttonurl2 != blank %}{{ section.settings.buttonurl2 }}{% else %}javascript:void(0);{% endif %}"
+            >
               {{ section.settings.buttonname2 }}
             </a>
           {% endif %}
@@ -483,6 +487,18 @@
   </script>
 {%- endif -%}
 
+{% style %}
+  .btn-first-on-both{
+   background: {{section.settings.BgColor1 }};
+   color: {{section.settings.Color1 }};
+  }
+
+  .btn-second-on-both {
+   background: {{section.settings.BgColor2 }};
+   color: {{section.settings.Color2 }};
+  }
+{% endstyle %}
+
 {% schema %}
 {
   "name": "t:sections.header.name",
@@ -525,6 +541,10 @@
       "content": "Right buttons"
     },
     {
+      "type": "header",
+      "content": "Fisrt button"
+    },
+    {
       "type": "text",
       "id": "buttonname",
       "label": "Button name (1)"
@@ -535,6 +555,20 @@
       "label": "Button URL (1)"
     },
     {
+      "type": "color",
+      "id": "BgColor1",
+      "label": "Button bgcolor (1)"
+    },
+    {
+      "type": "color",
+      "id": "Color1",
+      "label": "Button text color (1)"
+    },
+    {
+      "type": "header",
+      "content": "second button"
+    },
+    {
       "type": "text",
       "id": "buttonname2",
       "label": "Button name (2)"
@@ -543,6 +577,16 @@
       "type": "url",
       "id": "buttonurl2",
       "label": "Button URL (2)"
+    },
+    {
+      "type": "color",
+      "id": "BgColor2",
+      "label": "Button bgcolor (2)"
+    },
+    {
+      "type": "color",
+      "id": "Color2",
+      "label": "Button text color (2)"
     },
     {
       "type": "select",
