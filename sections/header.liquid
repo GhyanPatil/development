@@ -494,15 +494,27 @@
 {%- endif -%}
 
 {% style %}
-  .btn-first-on-both{
-   background: {{section.settings.BgColor1 }};
-   color: {{section.settings.Color1 }};
-  }
+   .btn-first-on-both{
+    background: {{section.settings.BgColor1 }};
+    color: {{section.settings.Color1 }};
+   }
 
-  .btn-second-on-both {
-   background: {{section.settings.BgColor2 }};
-   color: {{section.settings.Color2 }};
-  }
+   .btn-second-on-both {
+    background: {{section.settings.BgColor2 }};
+    color: {{section.settings.Color2 }};
+   }
+  {% if section.settings.HeaderFix %}
+   .header-wrapper{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    background: {{section.settings.BgColorHeader}};
+    top: 20px;
+    max-width: 1520px;
+    margin: 0 auto;
+   }
+   {%endif %}
 {% endstyle %}
 
 {% schema %}
@@ -541,6 +553,16 @@
       "id": "menu",
       "default": "main-menu",
       "label": "t:sections.header.settings.menu.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "HeaderFix",
+      "label": "Fix header overlay"
+    },
+    {
+      "type": "color",
+      "id": "BgColorHeader",
+      "label": "Background color header"
     },
     {
       "type": "header",
