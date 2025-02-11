@@ -231,7 +231,7 @@
             class="btn-first-on-both"
             href="{% if section.settings.buttonurl != blank %}{{ section.settings.buttonurl }}{% else %}javascript:void(0);{% endif %}"
           >
-            {{- section.settings.buttonname -}}
+            <span>{{- section.settings.buttonname -}}</span>
           </a>
           {% if section.settings.buttonname2 != blank %}
             <a
