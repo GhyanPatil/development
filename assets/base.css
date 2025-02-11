@@ -3637,6 +3637,7 @@ details-disclosure>details {
   display: block;
   width: fit-content;
   line-height: 1.2;
+  max-height: 45px;
 }
 
 .both-btns-name {
@@ -3646,10 +3647,11 @@ details-disclosure>details {
 }
 
 .btn-first-on-both svg {
-  width: 16px;
-  height: 16px;
+  width: 33px;
+  height: 33px;
   padding: 8px 11px;
   background: #fff;
+  border-radius: 30px;
 }
 
 a.btn-first-on-both {
