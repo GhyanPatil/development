@@ -40,6 +40,8 @@
       "settings": {
         "logo_position": "middle-left",
         "menu": "header",
+        "HeaderFix": true,
+        "BgColorHeader": "#ffffff",
         "buttonname": "Men",
         "buttonurl": "",
         "BgColor1": "#e4e4e4",
