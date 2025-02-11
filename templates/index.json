@@ -18,7 +18,7 @@
             "title": "Great things never came<br>\nfrom comfort zones.",
             "FontSizeDesk": 70,
             "FontSizeMob": 30,
-            "color": ""
+            "color": "#ffffff"
           }
         },
         "button_HQYDbn": {
@@ -77,7 +77,6 @@
         "column2",
         "column3"
       ],
-      "disabled": true,
       "settings": {
         "title": "",
         "heading_size": "h1",
