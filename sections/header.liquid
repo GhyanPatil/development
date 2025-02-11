@@ -232,9 +232,6 @@
             href="{% if section.settings.buttonurl != blank %}{{ section.settings.buttonurl }}{% else %}javascript:void(0);{% endif %}"
           >
             <span>{{- section.settings.buttonname -}}</span>
-            {% if section.settings.btnimage != blank %}
-              <img src="{{section.settings.btnimage | img_url: 'master' }}">
-            {% endif %}
           </a>
           {% if section.settings.buttonname2 != blank %}
             <a
