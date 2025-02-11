@@ -3627,7 +3627,7 @@ details-disclosure>details {
   align-items: center;
 }
 
-.both-btns-name a {
+.main-both-btns-name a {
   text-decoration: none;
   font-size: 14px;
   padding: 14px 24px;
@@ -3638,7 +3638,7 @@ details-disclosure>details {
   line-height: 1.2;
 }
 
-.both-btns-name {
+.main-both-btns-name {
   display: flex;
   align-items: center;
   gap: 5px;
