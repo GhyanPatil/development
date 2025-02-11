@@ -231,7 +231,7 @@
             class="btn-first-on-both"
             href="{% if section.settings.buttonurl != blank %}{{ section.settings.buttonurl }}{% else %}javascript:void(0);{% endif %}"
           >
-            {% if section.settings.icon != blank %}
+            {% if section.settings.btnimage != blank %}
               <img src="{{ section.settings.btnimage | img_url: 'master' }}">
             {% endif %}
             {{- section.settings.buttonname -}}
