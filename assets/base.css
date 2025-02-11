@@ -3621,25 +3621,3 @@ details-disclosure>details {
 
 
 /* header css start custom =================================------------------------------- */
-
-.header-btn-names {
-  display: flex;
-  align-items: center;
-}
-
-.both-btns-name a {
-  text-decoration: none;
-  font-size: 14px;
-  padding: 14px 24px;
-  font-weight: 500;
-  border-radius: 8px;
-  display: block;
-  width: fit-content;
-  line-height: 1.2;
-}
-
-.both-btns-name {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
