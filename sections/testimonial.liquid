@@ -1,0 +1,257 @@
+{{ 'testimonial.css' | asset_url | stylesheet_tag }}
+<div class="testimonial testimonial-{{ section.id }}">
+  <div class="">
+    <div class="testimonial-header page-width">
+      <div class="testimonial-header-arrows-btn">
+        <div class="swiper-button-prev">
+          {{ 'prev-arrow-icon.svg' | inline_asset_content }}
+        </div>
+        <div class="testimonial-header-info">
+          {%- if section.settings.sub_heading != blank -%}
+            <span class="sub-heading">{{ section.settings.sub_heading }}</span>
+          {%- endif -%}
+          {%- if section.settings.heading != blank -%}
+            <h2 class="heading">{{ section.settings.heading }}</h2>
+          {%- endif -%}
+          {%- if section.settings.button_label != blank -%}
+            <a
+              class="button-label"
+              href="{%- if section.settings.button_link != blank -%}{{ section.settings.button_link }}{%- else -%}javascript:void(0);{%- endif -%}"
+            >
+              {{ section.settings.button_label }}
+            </a>
+          {%- endif -%}
+        </div>
+        <div class="swiper-button-next">
+          {{ 'next-arrow-icon.svg' | inline_asset_content }}
+        </div>
+      </div>
+    </div>
+
+    {%- if section.blocks.size != 0 -%}
+      <div class="testimonial-body">
+        <div class="testimonial-slider swiper">
+          <div class="swiper-wrapper">
+            {%- for block in section.blocks -%}
+              <div class="testimonial-item swiper-slide">
+                <div class="testimonial-item-info"></div>
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<style>
+  .testimonial-{{ section.id }}{
+    padding-top:{{section.settings.padding_top_desktop}}px;
+    padding-bottom:{{section.settings.padding_bottom_desktop}}px;
+    background-color:{{section.settings.background_color}};
+  }
+  .testimonial-{{ section.id }} .testimonial-header .sub-heading{
+    font-size:{{section.settings.sub_heading_size_desktop}}px;
+    color:{{section.settings.sub_heading_color}};
+  }
+  .testimonial-{{ section.id }} .testimonial-header .heading{
+    font-size:{{section.settings.heading_size_desktop}}px;
+    color:{{section.settings.heading_color}};
+  }
+  .testimonial-{{ section.id }} .testimonial-header .button-label{
+    color:{{section.settings.button_color}};
+  }
+  @media(max-width:749px){
+    .testimonial-{{ section.id }}{
+      padding-top:{{section.settings.padding_top_mobile}}px;
+      padding-bottom:{{section.settings.padding_bottom_mobile}}px;
+    }
+    .testimonial-{{ section.id }} .testimonial-header .sub-heading{
+      font-size:{{section.settings.sub_heading_size_mobile}}px;
+    }
+    .testimonial-{{ section.id }} .testimonial-header .heading{
+      font-size:{{section.settings.heading_size_mobile}}px;
+    }
+  }
+</style>
+{% schema %}
+{
+  "name": "Testimonial",
+  "settings": [
+    {
+      "type": "color_background",
+      "id": "background_color",
+      "label": "Background color"
+    },
+    {
+      "type": "header",
+      "content": "Sub heading"
+    },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "label": "Sub heading",
+      "default": "Trusted & Proven by Science"
+    },
+    {
+      "type": "color",
+      "id": "sub_heading_color",
+      "label": "Sub heading color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "sub_heading_size_desktop",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "label": "Sub heading size(desktop)",
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "sub_heading_size_mobile",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "label": "Sub heading size(mobile)",
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Real People. Real Results."
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#1B1F23"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "label": "Heading size(desktop)",
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "label": "Heading size(mobile)",
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "View All"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Heading color",
+      "default": "#1B1F23"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding top(desktop)",
+      "min": 0,
+      "max": 100,
+      "default": 80,
+      "unit": "px",
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding bottom(desktop)",
+      "min": 0,
+      "max": 100,
+      "default": 80,
+      "unit": "px",
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding top(mobile)",
+      "min": 0,
+      "max": 100,
+      "default": 40,
+      "unit": "px",
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding bottom(mobile)",
+      "min": 0,
+      "max": 100,
+      "default": 40,
+      "unit": "px",
+      "step": 1
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "image",
+      "settings": []
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonial",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

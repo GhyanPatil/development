@@ -1,0 +1,44 @@
+.testimonial-header-arrows-btn .swiper-button-prev,
+.testimonial-header-arrows-btn .swiper-button-next {
+    position: unset;
+    margin: 0;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #1B1F231A;
+    padding: 13px;
+}
+
+.testimonial-header-arrows-btn .swiper-button-prev:after,
+.testimonial-header-arrows-btn .swiper-button-next:after {
+    content: none;
+}
+
+.testimonial-header-arrows-btn {
+    display: grid;
+    grid-template-columns: 40px auto 40px;
+    justify-content: center;
+    column-gap: 50px;
+    align-items: center;
+}
+
+.testimonial-header-info {
+    text-align: center;
+}
+
+.testimonial-header span.sub-heading {
+    display: block;
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+.testimonial-header h2.heading {
+    margin: 8px 0 18px 0;
+    line-height: 1.2;
+    font-weight: 600;
+}
+
+.testimonial-header a.button-label {
+    line-height: 1.3;
+    display: block;
+    font-weight: 500;
+}
