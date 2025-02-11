@@ -39,6 +39,9 @@
 .video-overlay-main {
     position: absolute;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }
 
 .video-overlay-top-left {
