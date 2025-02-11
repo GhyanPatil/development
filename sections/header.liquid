@@ -231,6 +231,9 @@
             class="btn-first-on-both"
             href="{% if section.settings.buttonurl != blank %}{{ section.settings.buttonurl }}{% else %}javascript:void(0);{% endif %}"
           >
+            {% if section.settings.icon != blank %}
+              <img src="{{ section.settings.btnimage | img_url: 'master' }}">
+            {% endif %}
             {{- section.settings.buttonname -}}
           </a>
           {% if section.settings.buttonname2 != blank %}
@@ -563,6 +566,11 @@
       "type": "color",
       "id": "Color1",
       "label": "Button text color (1)"
+    },
+    {
+      "type": "image_picker",
+      "id": "btnimage",
+      "label": "Button Icon image"
     },
     {
       "type": "header",
